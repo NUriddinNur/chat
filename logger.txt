@@ -1,0 +1,9 @@
+/login__POST__function now() { [native code] }__TypeError__The "chunk" argument must be of type string or an instance of Buffer. Received an instance of User
+/login__POST__function now() { [native code] }__TypeError__Cannot read property 'SECRET' of undefined
+/login__POST__function now() { [native code] }__TypeError__Cannot read property 'SECRET' of undefined
+/register__POST__function now() { [native code] }__ReferenceError__USER_REGISTER_VALIDATION is not defined
+/register__POST__function now() { [native code] }__ReferenceError__user is not defined
+/register__POST__function now() { [native code] }__SequelizeUniqueConstraintError__Validation error
+/register__POST__function now() { [native code] }__SequelizeUniqueConstraintError__Validation error
+/register__POST__function now() { [native code] }__SequelizeUniqueConstraintError__Validation error
+/users__GET__function now() { [native code] }__SequelizeDatabaseError__column "socket_id" does not exist
