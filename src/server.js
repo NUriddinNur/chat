@@ -17,7 +17,7 @@ import mockData from './mockdata.js'
     const app = express()
 
     const database = await db()
-    // mockData({ sequelize: database})
+    mockData({ sequelize: database})
 
     
     

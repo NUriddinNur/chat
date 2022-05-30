@@ -3,7 +3,8 @@ import JWT from '#utils/jwt'
 
 export default (req, res, next) => {
     try{
-        const token = req.headers.token
+        let token = req.headers.token
+        if(!token) token = req.params.token
 
         if(!token) {
             throw new ForbiddenError('Token is required!')

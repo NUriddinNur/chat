@@ -7,3 +7,14 @@ export const USER_REGISTRATION_VALIDATION = Joi.object({
         password: Joi.string().min(4).max(8).required()
     })
 })
+
+export const MESSAGE_VALIDATION = Joi.object({
+    query: Joi.object({
+        userId: Joi.number().required(),
+    }),
+
+    body: Joi.object({
+        messageTo: Joi.number().required(),
+        messageBody: Joi.string().required(),
+    })
+})

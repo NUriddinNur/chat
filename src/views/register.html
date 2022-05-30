@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        const token = window.localStorage.getItem('token')
+        if(token) window.location = '/'
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +19,11 @@
     <div class="container">
         <div class="wrapper">
             <h1 class="title">Sign up</h1>
-            <form action="#" class="site-form">
+            <span style="font-weight: bold; font-size: 13px; color: red; height: 25px" id="messageText"></span>
+            <form id="form" action="#" class="site-form">
                 <label>
                     <span class="zmdi zmdi-account"></span>
                     <input type="text" id="usernameInput" placeholder="Your name" required>
-                </label>
-                <label>
-                    <span class="zmdi zmdi-email"></span>
-                    <input type="email" id="emailInput" placeholder="Your email" required>
                 </label>
                 <label>
                     <span class="zmdi zmdi-lock"></span>
@@ -41,6 +42,6 @@
         </div>
     </div>
     <script src="./js/request.js"></script>
-    <script src="./js/registration.js"></script>
+    <script src="./js/register.js"></script>
 </body>
 </html>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        const token = window.localStorage.getItem('token')
+        if(!token) window.location = '/login'
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,18 +19,18 @@
             <div class="top-nav">
                 <h2>Users</h2>
             </div>
-            <ul class="chats-list">
-                <li class="chats-item">
+            <ul id="chatsList" class="chats-list">
+                <!-- <li class="chats-item">
                     <img src="https://picsum.photos/400" alt="profile-picture">
                     <p>Akhrorbek <span class="online-indicator"></span></p>
-                </li>
+                </li> -->
             </ul>
         </div>
         <div class="chat-side">
             <div class="chat-header">
                 <h2 style="display: flex; align-items:center;">
-                    <img width="50" height="50" src="https://picsum.photos/50" alt="" style="margin-right: 10px; border-radius: 50%">
-                    <span>some user</span>
+                    <img id="chatPhoto" width="50" height="50" src="https://picsum.photos/50" alt="" style="margin-right: 10px; border-radius: 50%">
+                    <span id="chatUsername"></span>
                 </h2> 
             </div>
             <div class="chat-main">
@@ -91,8 +95,8 @@
         </div>
         <div class="profile-side">
             <div class="profile-body">
-                <img src="https://picsum.photos/400" alt="profile-avatar" class="profile-avatar">
-                <p class="profile-name">any user</p>
+                <img id="profileAvatar" class="profile-avatar">
+                <p id="profileUsername" class="profile-name"></p>
             
             </div>
             <ul class="uploaded-file">
@@ -118,7 +122,7 @@
         </div>
     </div>
 
-    <!-- <script src="./js/request.js"></script> -->
-    <script src="./js/index.js"></script>
+<script src="./js/request.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>
