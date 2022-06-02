@@ -8,6 +8,7 @@ const route = Router()
 route.get('/getPhoto/:token', checkToken, CT.GET_PHOTO)
 route.get('/getUsername/:token', checkToken, CT.GET_USERNAME)
 route.get('/getFile/:fileName/:token', checkToken, CT.GET_FILE)
+route.get('/download/:fileName/:token', checkToken, CT.DOWNLOAD_FILE)
 
 
 export default route

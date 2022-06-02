@@ -22,7 +22,7 @@ export default async function () {
         await UserModel({sequelize})
         await MessageModel({sequelize})
 
-        await sequelize.sync({ alter: true })
+        await sequelize.sync({ force: true })
 
         return sequelize
     }catch(error) {

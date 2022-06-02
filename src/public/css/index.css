@@ -191,7 +191,18 @@ input[type="file"] {
     opacity: 0.7;
     font-weight: 500;
 }
+
+.msg-from {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .msg-from > img {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.msg-from > .msg-text {
     margin-left: auto;
 }
 

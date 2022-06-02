@@ -41,8 +41,17 @@ const GET_FILE = async (req, res, next) => {
     }
 }
 
+const DOWNLOAD_FILE = async (req, res, next) => {
+    try{
+        return res.download(path.join(process.cwd(), 'uploads', req.params.fileName))
+    }catch (error) {
+        next(error)
+    }
+}
+
 
 export default {
+    DOWNLOAD_FILE,
     GET_USERNAME,
     GET_PHOTO,
     GET_FILE

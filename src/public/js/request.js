@@ -13,8 +13,15 @@ async function request(path, method, body) {
             headers,
             body
         })
-        
-        return await response.json()
+
+        response = await response.json()
+
+        if(response.name === 'ForbiddenError') {
+            window.localStorage.clear()
+            window.location = 'login'
+        }
+
+        return response
     } catch (error) {
         console.log(error)
     }
