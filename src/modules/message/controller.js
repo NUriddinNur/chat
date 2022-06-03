@@ -38,17 +38,18 @@ const POST_MESSAGES = async (req, res, next) => {
         message.message_from = await req.models.User.findOne({ 
             where: { user_id: message.message_from },
             attributes: {
-                exclude: ['password', 'socket_id']
+                exclude: ['password']
             }
         })
 
         message.message_to = await req.models.User.findOne({ 
             where: { user_id: message.message_to },
             attributes: {
-                exclude: ['password', 'socket_id']
+                exclude: ['password']
             }
         })
 
+        process.io.to(message.message_to.socket_id).emit('message:new', message)
         return res.status(200).json({
             status: 200,
             message: 'The message is send!',

@@ -53,3 +53,8 @@
 /messages?userId=asdasd__GET__function now() { [native code] }__SequelizeDatabaseError__invalid input syntax for type integer: "asdasd"
 /messages?userId=asdad__GET__function now() { [native code] }__SequelizeDatabaseError__invalid input syntax for type integer: "asdad"
 /getPhoto/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzk0LjAuNDYwNi42MSBTYWZhcmkvNTM3LjM2IiwidXNlcklkIjo1LCJpYXQiOjE2NTQxOTY2MzUsImV4cCI6MTY1NDE5ODQzNX0.DUMSfcN4T_dsbnoGcYtUw0g8LcCqTFLBmWpsHJah8MA__GET__function now() { [native code] }__TypeError__Cannot read property 'user_img' of null
+/messages__POST__function now() { [native code] }__TypeError__Cannot read property 'to' of undefined
+/messages__POST__function now() { [native code] }__TypeError__Cannot read property 'to' of undefined
+/messages__POST__function now() { [native code] }__TypeError__Cannot read property 'to' of undefined
+/messages__POST__function now() { [native code] }__TypeError__Cannot read property 'to' of undefined
+/messages__POST__function now() { [native code] }__TypeError__Cannot read property 'to' of undefined

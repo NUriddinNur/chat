@@ -23,7 +23,6 @@ import messageHandler from './socket/message.js'
     mockData({ sequelize: database})
 
     
-    
     app.engine('html', ejs.renderFile)
     app.set('view engine', 'html')
     app.set('views', path.join(process.cwd(), 'src', 'views'))
@@ -46,11 +45,13 @@ import messageHandler from './socket/message.js'
     // logger
     app.use(logger)
     
-    
     const httpServer = createServer(app)
     const io = new Server(httpServer)
     
     io.on('connection', async (socket) => {
+        process.io = io
+        process.socket = socket
+        
         authHandler(io, socket, database)
         messageHandler(io, socket, database)
     })

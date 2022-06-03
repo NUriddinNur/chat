@@ -7,6 +7,7 @@ const socket = io({
 const backEndUrl = 'http://localhost:4006/'
 
 let selectedUserId
+let messageCount = 0
 
 async function getUsers() {
     let users = await request('users')
@@ -116,6 +117,7 @@ async function renderUsers(users) {
 
                     chatsMain.innerHTML = null
                     uploadedFiles.innerHTML = null
+
                     getMessages(${user.user_id})
                 })()"
             >
@@ -143,6 +145,8 @@ async function renderAvatarData() {
     const user = await request('/getUsername/' + token)
     profileUsername.textContent = user.username
 }
+
+
 
 logOut.onclick = () => {
     window.localStorage.clear()
@@ -173,6 +177,18 @@ uploads.onchange = event => {
 }
 
 
+let setTimeoutId
+textInput.onkeyup = event => {
+    if (setTimeoutId) return 
+
+    socket.emit('user:typing', { to: selectedUserId })
+    setTimeoutId = setTimeout(() => {
+        socket.emit('user:stopping', { to: selectedUserId })
+        setTimeoutId = null
+    }, 2000)
+}
+
+
 socket.on('exit', () => {
     window.localStorage.clear()
     window.location = '/login'
@@ -186,6 +202,41 @@ socket.on('user:online', ({userId}) => {
 socket.on('user:offline', ({userId}) => {
     const span = document.querySelector(`[data-id='${userId}']`)
     span.classList.remove('online-indicator')
+})
+
+
+
+socket.on('message:new', (message) => {
+    chatAction.textContent = null
+
+    if (message.message_from.user_id == selectedUserId) {
+        renderMessages([message], selectedUserId)
+    }
+
+    // else {
+    //     const span = document.querySelector(`[data-id='${message.message_from.user_id}']`)
+    //     span.textContent = ++messageCount
+    //     span.style.fontSize = "12px"
+    // }
+})
+
+
+socket.on('user:typing', ({ from }) => {
+    if (from == selectedUserId) {
+        chatAction.textContent = 'is typing...'
+    }
+})
+
+socket.on('user:stopping', ({ from }) => {
+    if (from == selectedUserId) {
+        chatAction.textContent = ''
+    }
+})
+
+socket.on('user:filing', ({ from }) => {
+    if (from == selectedUserId) {
+        chatAction.textContent = 'is sending a file...'
+    }
 })
 
 renderAvatarData()
