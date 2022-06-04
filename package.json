@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "startChat": "node src/server.js",
+    "startChats": "node src/server.js",
     "dev": "nodemon src/server.js"
   },
   "keywords": [],
