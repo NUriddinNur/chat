@@ -4,7 +4,7 @@ const socket = io({
     }
 })
 
-const backEndUrl = 'http://localhost:4006/'
+const backEndUrl = 'http://167.71.50.31:4006/'
 
 let selectedUserId
 let messageCount = 0
@@ -132,10 +132,14 @@ async function renderUsers(users) {
 }
 
 async function setChat(userImg, username, userId) {
+    const span = document.querySelector(`[data-id='${userId}']`)
+
     selectedUserId = userId
     form.style.display = 'flex'
     chatUsername.textContent = username
     chatPhoto.src = userImg
+    span.textContent = null
+    messageCount = 0
 }
 
 
@@ -211,13 +215,11 @@ socket.on('message:new', (message) => {
 
     if (message.message_from.user_id == selectedUserId) {
         renderMessages([message], selectedUserId)
+    }else {
+        const span = document.querySelector(`[data-id='${message.message_from.user_id}']`)
+        span.textContent = ++messageCount
+        span.style.fontSize = "12px"
     }
-
-    // else {
-    //     const span = document.querySelector(`[data-id='${message.message_from.user_id}']`)
-    //     span.textContent = ++messageCount
-    //     span.style.fontSize = "12px"
-    // }
 })
 
 

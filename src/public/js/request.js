@@ -20,6 +20,10 @@ async function request(path, method, body) {
             window.localStorage.clear()
             window.location = 'login'
         }
+        if(response.name === 'ValidationError') {
+            textInput.value = null
+            return alert(response.message)
+        }
 
         return response
     } catch (error) {

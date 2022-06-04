@@ -5,7 +5,11 @@ import path from 'path'
 
 const POST_MESSAGES = async (req, res, next) => {
     try{
-        const { messageTo, messageBody } = req.body
+        let { messageTo, messageBody } = req.body
+
+        if(messageBody.match(/<[^>]*>?/gm)) {
+            throw new ValidationError('Invalid input!')
+        }
         
         let message
 
