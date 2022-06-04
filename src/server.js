@@ -19,7 +19,7 @@ import messageHandler from './socket/message.js'
     const app = express()
 
     const database = await db()
-    // mockData({ sequelize: database})
+    mockData({ sequelize: database})
 
     
     app.engine('html', ejs.renderFile)
