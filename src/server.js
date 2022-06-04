@@ -15,7 +15,6 @@ import mockData from './mockdata.js'
 import authHandler from './socket/authentication.js'
 import messageHandler from './socket/message.js'
 
-
 !async function () {
     const app = express()
 
