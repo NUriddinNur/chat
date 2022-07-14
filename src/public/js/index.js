@@ -4,7 +4,7 @@ const socket = io({
     }
 })
 
-const backEndUrl = 'http://167.71.50.31:4006/'
+const backEndUrl = 'http://localhost:4006/'
 
 let selectedUserId
 let messageCount = 0
