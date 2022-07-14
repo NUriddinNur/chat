@@ -1,4 +1,4 @@
-import errorHandler from '/middlewares/errorHandler.js'
+import errorHandler from './middlewares/errorHandler.js'
 import logger from './middlewares/logger.js'
 import fileUpload from 'express-fileupload'
 import apiRoutes from './modules/index.js'
